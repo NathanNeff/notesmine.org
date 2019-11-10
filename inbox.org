@@ -1,0 +1,27 @@
+* Inbox
+
+* Linux
+
+
+  ls /
+
+* Vim
+
+** Do not prompt to save if buffer was read from STDIN
+
+Quite frequently, I use vim as a substitute for `less` and `more`.
+
+    $ git log | vim -
+
+When I quit vim, I get a prompt that says "No write since last change".
+
+I want to avoid this.
+
+See this Stack Overflow link:
+- https://vi.stackexchange.com/questions/2725/how-to-force-quit-if-input-was-stdin#2726
+  - A user posted this link:
+    -https://gitlab.com/phunehehe/my-env/blob/6fba38e4af8cdae3938c6b1c4592186ecbbffcdd/vim/vimrc#L92-93
+
+#+begin_src vim
+autocmd StdinReadPost * set buftype=nofile
+#+end_src
