@@ -37,3 +37,16 @@ See this Stack Overflow link:
 #+begin_src vim
 autocmd StdinReadPost * set buftype=nofile
 #+end_src
+* Searching files from org-mode                           :link:org:org_mode:
+[2019-07-29 Mon 23:56]
+
+This stack overflow conversation asks basically what I'm looking for:
+
+A way to search my org-mode files easily and bringing up a helm
+interface with the search results.
+
+I'm currently using a helm function to do this, but it's a bit clunky
+https://emacs.stackexchange.com/questions/10012/a-search-interface-for-org-mode-files
+
+--
+
