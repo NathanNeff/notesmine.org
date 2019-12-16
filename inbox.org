@@ -1,5 +1,17 @@
 * Inbox
 
+* Bash - Forget History
+
+  https://unix.stackexchange.com/questions/10922/temporarily-suspend-bash-history-on-a-given-shell
+
+  #+begin_src bash
+  unset HISTFILE
+  set +o history
+  set -o history
+  #+end_src
+
+  Also, if you put a space before a command it's not recorded in history (for BASH)
+
 * Linux
 
 
