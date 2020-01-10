@@ -1,5 +1,104 @@
 * Inbox
 
+* todo This should go into notesmine
+:LOGBOOK:
+- State "todo"       from              [2019-11-13 Wed 17:14]
+:END:
+
+
+Searching for stuff using agenda search
+
++foo+bar doesn't work.  You need to use +foo +bar (with a space)
+
+1) Create a link for org-search
+
+* functional programming fundamentals
+[2019-12-10 Tue 22:20]
+clocked: 
+from: 
+
+Functional Programming Essentials by Kelley Robinson
+https://www.youtube.com/watch?v=Yc6nJZK39mU&t=2230
+this video looks good
+--
+* Keeping domain server and mail server separate
+[2019-08-13 Tue 10:54]
+
+https://www.bayleafdigital.com/configure-email-hosted-different-server-website-2/
+
+
+--
+* Using Org-mode code blocks                                       :org:mode:
+[2018-08-13 Mon 09:30]
+https://emacs.stackexchange.com/questions/5613/how-to-convert-lines-to-an-org-mode-checklist
+
+* Unix Magic Show Phillip Zeyliger
+https://cloudera.app.box.com/s/rc3p8az6r583qhlg7ixab57z8vg2xb27/file/279101357902
+
+
+* Cloudcat overview                                                :artifact:
+[2018-08-17 Fri 14:43]
+https://docs.google.com/presentation/d/1LXVrwC14-XOhWwSY82uGjOsiZhSiCm9gUD1zS0Zlc1U/edit#slide=id.p4
+* todo Henry Robinson Unreasonable Effectiveness of SQL Engines :impala:interesting:whitepaper:
+:LOGBOOK:
+- State "todo"       from "TODO"       [2019-11-03 Sun 13:25]
+:END:
+
+Find on Wiki
+
+
+* CGroup Case Studies
+[2018-08-15 Wed 06:18]
+And bug report from Brian Baillod is in email from Aug. 8 under "performance-tuning"
+
+* log4j set explicit custom logfile                           :for_faq:log4j:
+[2018-12-29 Sat 16:50]
+Might not be the best way to do this, but. . . . .
+
+Example is in http://github.mtv.cloudera.com/EDU/dell-kafka-custom-vm/tree/master/demos/isr-versus-acks
+
+Basically set thisErrorLog on commandline:
+export KAFKA_OPTS="-Dlog4j.configuration=file:log4j.properties.trace -DthisErrorLog=prodAckONE.log"
+kafka-console-producer --broker-list $BOOTSTRAP_SERVERS \
+    --topic not_enough_isrs \
+
+And use this log4j.properties:
+
+log4j.rootLogger=TRACE, fileAppender
+log4j.appender.fileAppender=org.apache.log4j.FileAppender
+log4j.appender.fileAppender.File=${thisErrorLog}
+log4j.appender.fileAppender.Append=False
+
+log4j.appender.fileAppender.layout=org.apache.log4j.EnhancedPatternLayout
+log4j.appender.fileAppender.layout.ConversionPattern= %-4r [%t] %-5p %c - %m%n
+
+
+* GNUPlot scripts for charting
+[2018-11-09 Fri 11:10]
+and python script for generating html file with charts for kafka
+course is in 
+
+~/Box Sync/Shared/KafkaCourse
+
+chart-metric.sh
+generate-charts.py
+* todo Read org-mode hacks                                         :@org:res:
+[2019-10-15 Tue 09:04]
+from: [[file:~/classes.org::*Contact%20customer][Contact customer]]
+
+It's in my ~/Documents/Geek
+--
+* Taming your todo list
+Great cartoon from Sacha Chua on taming your todo list
+http://www.emacslife.com/baby-steps-org.html
+
+
+Found GTD workflow from Charles on org-mode website:
+http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html
+
+[[id:E6A2141A-69D0-44B6-8BC2-BBFC607B9A92][Org GTD from Charles]]
+
+
 * Linux
 
 
@@ -25,3 +124,8 @@ See this Stack Overflow link:
 #+begin_src vim
 autocmd StdinReadPost * set buftype=nofile
 #+end_src
+* Emacs Evil mode tutorial github
+[2020-01-08 Wed 13:16]
+
+https://github.com/noctuid/evil-guide#hooks--
+
