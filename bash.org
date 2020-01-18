@@ -1,0 +1,43 @@
+* Bash 
+
+Bourne Again Shell
+
+
+** Job Control
+
+https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes
+
+    fg
+
+I accidentally type "fg" and it will show =git-gui= or whatever process I started.
+
+1) Press Ctrl-Z
+1) Use =bg= to start the process in the background
+
+
+** Configuration
+
+*** todo Put this in the bash configuration screen                 :review:
+http://lists.debian.org/debian-user/1999/06/msg00055.html
+* Vim -- align columns
+
+ http://stackoverflow.com/questions/1229900/reformat-in-vim-for-a-nice-column-layout
+
+ :%!column -t
+
+# RPM / Yum
+
+Use rpm -ql to view the contents of a package, if you've already installed it k
+
+>sudo yum install yum-utils
+>repoquery --list <package-you-want-to-know-about>
+
+# Filesystem Operations
+
+Flush filesystem cache
+
+    echo 3 > /proc/sys/vm/drop_caches 
+
+    http://unix.stackexchange.com/questions/87908/how-do-you-empty-the-buffers-and-cache-on-a-linux-system
+
+
