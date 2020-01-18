@@ -1,0 +1,24 @@
+* Bash 
+
+Bourne Again Shell
+
+
+** Job Control
+
+https://www.digitalocean.com/community/tutorials/how-to-use-bash-s-job-control-to-manage-foreground-and-background-processes
+
+: $ fg
+
+However, I accidentally type =fg= and it will show =git-gui= or whatever process I started.
+
+*** Fix "Backgrounded" Job
+1) Press =Ctrl-Z=
+1) Use =bg= to start the process in the background
+
+
+** Configuration
+
+*** todo Put this in the bash configuration screen                 :review:
+http://lists.debian.org/debian-user/1999/06/msg00055.html
+
+
