@@ -50,3 +50,10 @@ https://emacs.stackexchange.com/questions/10012/a-search-interface-for-org-mode-
 
 --
 
+
+* Toward Data Science Python Portfolio Analysis
+
+https://towardsdatascience.com/python-for-finance-stock-portfolio-analyses-6da4c3e61054
+
+and this is a good blog as well (referred by the above blog)
+https://pbpython.com/
