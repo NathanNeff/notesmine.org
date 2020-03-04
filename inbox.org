@@ -1,5 +1,12 @@
 * Inbox
 
+** Tmux stuck in overwrite mode
+[2020-01-15 Wed 16:47]
+export TERM=screen
+
+(I wonder if export TERM=tmux works?)
+https://stackoverflow.com/questions/39088240/stuck-in-overwrite-mode-in-tmux
+--
 * todo This should go into notesmine
 :LOGBOOK:
 - State "todo"       from              [2019-11-13 Wed 17:14]
@@ -129,3 +136,41 @@ autocmd StdinReadPost * set buftype=nofile
 
 https://github.com/noctuid/evil-guide#hooks--
 
+
+
+
+* Spark Structured Streaming
+
+
+
+** DataFrameWriter
+
+https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.streaming.DataStreamWriter
+
+Output Sinks: e.g. truncate options
+https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#output-sinks
+
+
+* 
+* Awesome!  Show variables I've defined in iPython:
+
+=%who=
+
+https://stackoverflow.com/questions/633127/viewing-all-defined-variables
+
+Use %reset to clear stuff
+
+https://stackoverflow.com/questions/26545051/is-there-a-way-to-delete-created-variables-functions-etc-from-the-memory-of-th
+
+* Python UDFs
+
+https://changhsinlee.com/pyspark-udf/
+
+
+* Vim:  Jump to most recently edited file
+
+Use =`0=
+
+* Vim: Clearing the history
+ 
+https://stackoverflow.com/questions/2816719/clear-certain-criteria-from-viminfo-file
