@@ -22,3 +22,9 @@ However, I accidentally type =fg= and it will show =git-gui= or whatever process
 http://lists.debian.org/debian-user/1999/06/msg00055.html
 
 
+
+* Command Line Options 
+
+-x     Prints out each line of script as it's being run.   
+bash -x mydefscript
+You can also use =set -x=
