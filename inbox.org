@@ -2,15 +2,28 @@
 
 * Bash - Forget History
 
-  https://unix.stackexchange.com/questions/10922/temporarily-suspend-bash-history-on-a-given-shell
+https://unix.stackexchange.com/questions/10922/temporarily-suspend-bash-history-on-a-given-shell
 
-  #+begin_src bash
-  unset HISTFILE
-  set +o history
-  set -o history
-  #+end_src
+#+begin_src bash
+unset HISTFILE
+set +o history
+set -o history
+#+end_src
 
-  Also, if you put a space before a command it's not recorded in history (for BASH)
+
+
+Also, if you put a space before a command it's not recorded in history (for BASH)
+But, you must have that option enabled.  See HISTIGNORE here:
+https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html#Bash-History-Facilities
+  
+** What's up with =set +o= versus =set -o=
+=set +o= will /un/ set an option :-/
+=set -o= will /set/ an option :-/
+  https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+  
+See man pages for set (it's at the bottom)
+
+=man set=
 
 * Linux
 
@@ -57,3 +70,11 @@ https://towardsdatascience.com/python-for-finance-stock-portfolio-analyses-6da4c
 
 and this is a good blog as well (referred by the above blog)
 https://pbpython.com/
+
+* Magit
+
+Use the vim diff command to see the total number of additions / deletions from the CWD
+
+
+* How to run emacs with a different inti file
+evn HOME=~/tmp/emacs --chdir=/Users/ShareDir/CurClass &
