@@ -1,0 +1,131 @@
+ion most useful:
+
+- https://org-babel.readthedocs.io/en/latest/
+- https://orgmode.org/worg/org-contrib/babel/
+
+
+Results of Evaluation:
+- https://orgmode.org/manual/Results-of-Evaluation.html#Results-of-Evaluation
+
+* Evaluating Code
+
+** Toggle "org-confirm-babel-evaluate"
+
+This creates a function which you can call using `M-x` to tell Emacs
+to prompt or not to prompt every time you wish to execute a code block
+
+#+begin_src emacs-lisp :results none
+(defun njn-toggle-babel-confirm ()
+  (interactive)
+  (setq org-confirm-babel-evaluate (if org-confirm-babel-evaluate nil t))
+  (message (format "org-confirm-babel-evaulate is: %s" org-confirm-babel-evaluate)))
+#+end_src
+
+** Example 1: Run Python code and return evaulated result
+
+- Use :results value which "wraps" the Python code in a function
+  
+  
+#+begin_src python :results value
+print("hello world")  # Will not output
+return("hello world return") # Will outupt
+#+end_src
+
+#+RESULTS:
+: hello world return
+
+** Example 2: Run python code and output the results without the ":" leading character
+
+See `org-babel-min-lines-for-block-output`
+https://code.orgmode.org/bzg/org-mode/src/master/lisp/ob-core.el#L504
+
+#+name: output-without-colon-prefix
+#+begin_src emacs-lisp :results output
+(setq org-babel-min-lines-for-block-output 1)
+(print "Hello")
+(print "Again")
+#+end_src
+
+#+RESULTS: output-without-colon-prefix
+#+begin_example
+
+"Hello"
+
+"Again"
+#+end_example
+
+#+name: output-with-colon-prefix
+#+begin_src emacs-lisp :results output
+(setq org-babel-min-lines-for-block-output 10)
+(print "Hello")
+(print "Again")
+#+end_src
+
+#+RESULTS: output-with-colon-prefix
+: 
+: "Hello"
+: 
+: "Again"
+
+*** todo How to set this per code block (let's say Python?)
+
+** Example 3: Run Python code and create org-mode table
+
+- Include a `#+name:` header arg with the name of the table to give
+  the output.
+- Use `:results value table` to tell org-mode to interpret the results
+  as an array of arrays and put each array element in a new table row
+- Create an /array of arrays/ for your output.
+  - One inner array for each line
+- Return None (not an array of None) to add a heading line-separator to the table
+  
+#+name: people-table
+#+begin_src python :results value table
+data = [ ]
+data.append(["User", "ID", "Homepage"])
+data.append(None)
+data.append(["Bob", 1, "http://example.com/bob"])
+data.append(["Steve", 2, "http://example.com/steve"])
+return(data)
+#+end_src
+
+#+RESULTS: people-table
+| User  | ID | Homepage                 |
+|-------+----+--------------------------|
+| Bob   |  1 | http://example.com/bob   |
+| Steve |  2 | http://example.com/steve |
+
+
+* Using Org-Tables as Input
+
+#+name: simple-text
+#+header: 
+#+begin_src python :var people=people-table :results output :var morepeople=people-table :org-babel-min-lines-for-block-output 1
+for i, person in enumerate(people):
+    print('- ' + person[0])
+    print("  " + person[2])
+for i in xrange(len(morepeople)):
+    print("  " + morepeople[i][0])
+    print("Hello %d" % 1)
+#+end_src
+
+#+RESULTS: simple-text
+
+
+
+* Using Org-Tables as Input *with* external script
+https://lists.gnu.org/archive/html/emacs-orgmode/2019-12/msg00247.html
+
+#+name: proc-something
+#+begin_src python :noweb eval
+<<foo.py>>
+#+end_src
+
+#+RESULTS: bar
+
+
+  :results output :var morepeople=people-table :org-babel-min-lines-for-block-output 1
+
+
+
+
