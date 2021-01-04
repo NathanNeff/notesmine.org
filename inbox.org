@@ -188,3 +188,11 @@ Use =`0=
 * Vim: Clearing the history
  
 https://stackoverflow.com/questions/2816719/clear-certain-criteria-from-viminfo-file
+* Ack: Ignore graffle and fo files
+
+
+ put this in .ackrc
+# Ignore fo files
+--ignore-file=ext:fo
+--ignore-file=ext:graffle
+
