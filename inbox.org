@@ -196,3 +196,10 @@ https://stackoverflow.com/questions/2816719/clear-certain-criteria-from-viminfo-
 --ignore-file=ext:fo
 --ignore-file=ext:graffle
 
+* Git:  Show files in git log
+
+git log --compact-summary
+
+- Use grep to search commit text
+
+git log --grep idempotent
