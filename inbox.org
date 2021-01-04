@@ -7,6 +7,12 @@ export TERM=screen
 (I wonder if export TERM=tmux works?)
 https://stackoverflow.com/questions/39088240/stuck-in-overwrite-mode-in-tmux
 --
+
+* Tmux attach to a grouped session
+
+https://unix.stackexchange.com/questions/24274/attach-to-different-windows-in-session
+tmux new-session -t "session name of other session"
+
 * todo This should go into notesmine
 :LOGBOOK:
 - State "todo"       from              [2019-11-13 Wed 17:14]
