@@ -1,0 +1,146 @@
+* Tmux
+
+Start new session and attach to some existing session if it already exists
+tmux new-session -A -s some_session_name.  This will use an existing session
+
+https://unix.stackexchange.com/questions/103898/how-to-start-tmux-with-attach-if-a-session-exists
+
+** Start new session but inherit windows and panes from another session
+
+This is my favorite. It allows two terminals to have the same set of windows and panes.
+Active windows / panes in one terminal does not affect the active windows/panes in another
+
+Start all your sessions with a new group (a.k.a. target-session)
+
+    tmux new-session --t some_group
+Use -t and remove -A to create a new session, and belong to the same group p, meaning you'll have two sessions and they'll
+
+have the same windows, but be independent of each other
+tmux new-session -A -s some_session_name -t foo_group 
+
+** Change dir for tmux session
+
+Command line:
+
+    : $ tmux attach-session -t <existing session> -c <new dir>
+
+
+Within tmux:
+
+    : Ctrl+A :attach-session -c <new dir>
+
+
+** Handy Commands
+
+=move-window= command will move a window to a new window (e.g. reassign the
+number)
+
+http://unix.stackexchange.com/questions/21742/renumbering-windows-in-tmux
+
+** Soft boundaries: Wow - Really cool
+
+iTerm2 can "respect soft boundaries" so that you can easily select text
+from one of the visible panes.  This avoids using Tmux's text selection
+keyboard commands which are a bit difficult.  Really cool
+
+** Display the value of a variable
+
+https://stackoverflow.com/questions/43439551/display-current-value-of-option-in-tmux-display-message
+#+BEGIN_SRC 
+:display-message "#{pane_current_path}"
+#+END_SRC
+
+** Show options
+
+show-options command
+
+** Resizing Panes
+
+Done with Meta-Arrow Keys
+
+* Tmux Sessions: "Powerful"
+
+But confusing.
+
+Basic idea:
+
+- You can create tmux "sessions" which have windows/panes.
+- You can "attach" different terminals (clients) to the same session.
+  - This is kinda cool for pairing
+  - Kinda cool if you log in from home and attach to a session
+    and log in from work and attach to a session.
+
+** Create a new session
+
+    : $ tmux list-sessions
+
+    # Create a session called ThisGuy
+    : $ tmux new-session -s ThisGuy
+
+** =new-session= versus =attach-session=
+
+Obviously, new-session creates a new session.  =attach-session= will bind a new
+terminal (client) to an existing session.  With =attach-session=, when one user
+goes to a window / pane, the other user's display will show the same thing.  This
+is useful for "pair programming" perhaps, or demonstrations.
+
+However, if you simply want to attach a terminal to an existing session, and
+leave the other terminals as-is, then use new-session -t.
+
+    # create a new tmux session that's "grouped" with the original session.
+    : $ tmux new-session -t <some existing session>
+
+* Tmux
+
+tmux new-session -t <some session name>
+* Tmux
+
+Great multiplexer
+
+
+* Help!
+
+Ctrl-A ?
+
+* Enter a command
+
+Ctrl-A :
+
+* Command-line Invocation
+
+- Start Tmux and *group* with existing <session>, else create it.
+Grouping with a session creates an independent session with the same
+windows/panes.  This allows one session to be looking @ a different window
+than the other.  This is good.
+
+    tmux new-session -s <session_name>
+    tmux new-session -t <session>
+
+Vim -- how to execute visually highlighted buffer
+Yank the visually highlighted stuff, then run :@"
+
+* Tmux Commands
+
+- Copy buffer into a file (Also shows how to map 'v' and 'p' to 
+  enter visual mode in vi-mode/copy-mode
+
+  http://unix.stackexchange.com/questions/26548/write-all-tmux-scrollback-to-a-file
+
+- Visual mode (Copy Mode)
+
+  Enter Copy Mode : Ctrl-A [
+  Mark Text (vi-copy) : Space
+  Yank Text (vi-copy) : Enter
+  Paste Yanked Text   : Ctrl-A ]
+
+- Copy buffer into a file (Also shows how to map 'v' and 'p' to
+  enter visual mode in vi-mode/copy-mode
+
+  http://unix.stackexchange.com/questions/26548/write-all-tmux-scrollback-to
+
+* Window Panes
+
+- Pop a window pane out of current window
+
+  Ctrl-A !
+

@@ -119,6 +119,30 @@ http://members.optusnet.com.au/~charles57/GTD/gtd_workflow.html
 
 [[id:E6A2141A-69D0-44B6-8BC2-BBFC607B9A92][Org GTD from Charles]]
 
+* Bash - Forget History
+
+https://unix.stackexchange.com/questions/10922/temporarily-suspend-bash-history-on-a-given-shell
+
+#+begin_src bash
+unset HISTFILE
+set +o history
+set -o history
+#+end_src
+
+
+
+Also, if you put a space before a command it's not recorded in history (for BASH)
+But, you must have that option enabled.  See HISTIGNORE here:
+https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html#Bash-History-Facilities
+  
+** What's up with =set +o= versus =set -o=
+=set +o= will /un/ set an option :-/
+=set -o= will /set/ an option :-/
+  https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+  
+See man pages for set (it's at the bottom)
+
+=man set=
 
 * Linux
 
@@ -145,6 +169,7 @@ See this Stack Overflow link:
 #+begin_src vim
 autocmd StdinReadPost * set buftype=nofile
 #+end_src
+
 * Emacs Evil mode tutorial github
 [2020-01-08 Wed 13:16]
 
@@ -228,3 +253,32 @@ cat /proc/meminfo | grep -i hugepages_total
 # disable 
 echo never > /sys/kernel/mm/transparent_hugepage/defrag 
 echo never > /sys/kernel/mm/transparent_hugepage/enabled 
+
+* Searching files from org-mode                           :link:org:org_mode:
+[2019-07-29 Mon 23:56]
+
+This stack overflow conversation asks basically what I'm looking for:
+
+A way to search my org-mode files easily and bringing up a helm
+interface with the search results.
+
+I'm currently using a helm function to do this, but it's a bit clunky
+https://emacs.stackexchange.com/questions/10012/a-search-interface-for-org-mode-files
+
+--
+
+
+* Toward Data Science Python Portfolio Analysis
+
+https://towardsdatascience.com/python-for-finance-stock-portfolio-analyses-6da4c3e61054
+
+and this is a good blog as well (referred by the above blog)
+https://pbpython.com/
+
+* Magit
+
+Use the vim diff command to see the total number of additions / deletions from the CWD
+
+
+* How to run emacs with a different inti file
+evn HOME=~/tmp/emacs --chdir=/Users/ShareDir/CurClass &
