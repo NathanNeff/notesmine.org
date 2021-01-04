@@ -203,3 +203,12 @@ git log --compact-summary
 - Use grep to search commit text
 
 git log --grep idempotent
+* Git ignore files temporarily
+
+
+git update-index --assume-unchanged <path-to-file>
+git update-index --no-assume-unchanged <path-to-file>
+
+https://stackoverflow.com/questions/13442130/git-temporarily-ignore-trivial-changes-to-files#26549583
+https://git-scm.com/docs/git-update-index#_using_assume_unchanged_bit
+
