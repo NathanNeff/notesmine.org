@@ -212,3 +212,10 @@ git update-index --no-assume-unchanged <path-to-file>
 https://stackoverflow.com/questions/13442130/git-temporarily-ignore-trivial-changes-to-files#26549583
 https://git-scm.com/docs/git-update-index#_using_assume_unchanged_bit
 
+* Git: Configure a user-based ignore file
+
+git config --global core.excludesfile ~/.gitignore
+
+https://stackoverflow.com/questions/4824188/git-ignore-vim-temporary-files
+
+* Misc.
