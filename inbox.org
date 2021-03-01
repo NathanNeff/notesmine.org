@@ -284,3 +284,27 @@ Use the vim diff command to see the total number of additions / deletions from t
 
 * How to run emacs with a different inti file
 evn HOME=~/tmp/emacs --chdir=/Users/ShareDir/CurClass &
+
+* Emacs lisp play with files and buffers
+
+#+begin_src emacs-lisp :results table
+(defun read-lines (filePath)
+  "Return a list of lines of a file at filePath."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
+(setq njn-org-agenda-file "org-agenda-files.org")
+(setq njn-org-agenda-ignore-file "org-agenda-files-ignore.org")
+
+(setq agenda-files-buffer (get-file-buffer njn-org-agenda-file))
+(if agenda-files-buffer
+    (and (buffer-modified-p agenda-files-buffer) (save-buffer agenda-files-buffer)))
+
+(setq ignore-buffer (get-file-buffer njn-org-agenda-ignore-file))
+(if ignore-buffer
+    (and (buffer-modified-p ignore-buffer) (save-buffer ignore-buffer)))
+
+(setq njn-agenda-file-entries (read-lines njn-org-agenda-file))
+(setq njn-agenda-ignore-file-entries (read-lines njn-org-agenda-ignore-file))
+#+end_src
