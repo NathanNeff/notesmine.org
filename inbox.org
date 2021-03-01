@@ -175,6 +175,8 @@ autocmd StdinReadPost * set buftype=nofile
 
 https://github.com/noctuid/evil-guide#hooks--
 
+* Git Tags
+
 
 
 
